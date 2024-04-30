@@ -1,4 +1,4 @@
-@tailwind base;
+  @tailwind base;
   @tailwind components;
   @tailwind utilities;
 
@@ -68,9 +68,18 @@
 
   @layer base {
     * {
-      @apply border-border;
+      @apply border-foreground/20;
     }
-    body {
-      @apply bg-background text-foreground;
-    }
+  }
+
+  :root {
+    --radius: 0.5rem;
+  }
+  
+  body {
+    font-family: var(--font-libre_franklin), sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-arimo), sans-serif;
   }
