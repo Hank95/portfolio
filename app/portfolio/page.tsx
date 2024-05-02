@@ -1,9 +1,6 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/p4f6nvU5ZsX
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
+"use client";
 import Link from "next/link";
+import Image from "next/image";
 import {
   CardTitle,
   CardDescription,
@@ -11,12 +8,23 @@ import {
   CardContent,
   Card,
 } from "@/components/ui/card";
-import { JSX, SVGProps } from "react";
+import { JSX, SVGProps, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import headShot from "@/public/head_shot.png";
 
-export default function Portfolio() {
+export default function Component() {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      disable: "phone",
+      duration: 700,
+      easing: "ease-out-cubic",
+    });
+  }, []);
   return (
     <div className="flex flex-col min-h-[100dvh]">
-      <header className="px-4 lg:px-6 h-14 flex items-center bg-blue-900 text-white">
+      <header className="px-4 lg:px-6 h-14 flex items-center bg-[#4d6e5e] text-white">
         <Link className="flex items-center justify-center" href="#">
           <BriefcaseIcon className="h-6 w-6" />
           <span className="sr-only">John Doe's Portfolio</span>
@@ -49,12 +57,16 @@ export default function Portfolio() {
         </nav>
       </header>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32" id="about">
+        <section
+          className="w-full py-12 md:py-24 lg:py-32 opacity-0 translate-y-10 transition-all duration-700"
+          data-aos="fade-up"
+          id="about"
+        >
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_550px]">
               <div className="space-y-4">
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl text-blue-900">
-                  Henry Pendleton
+                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl text-[#4d6e5e]">
+                  John Doe
                 </h1>
                 <h2 className="text-2xl font-semibold text-gray-500 dark:text-gray-400">
                   Full-Stack Web Developer
@@ -67,23 +79,25 @@ export default function Portfolio() {
                   implementing robust, efficient solutions.
                 </p>
               </div>
-              <img
+              <Image
                 alt="John Doe"
-                className="mx-auto aspect-square overflow-hidden rounded-full object-cover sm:w-full"
+                className="mx-auto aspect-square overflow-hidden rounded-full object-cover sm:w-full opacity-0 translate-x-10 transition-all duration-700"
+                data-aos="fade-left"
                 height="550"
-                src="/placeholder.svg"
+                src={headShot}
                 width="550"
               />
             </div>
           </div>
         </section>
         <section
-          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 opacity-0 translate-y-10 transition-all duration-700"
+          data-aos="fade-up"
           id="experience"
         >
           <div className="container px-4 md:px-6">
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-900">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#4d6e5e]">
                 Work Experience
               </h2>
               <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
@@ -92,9 +106,12 @@ export default function Portfolio() {
               </p>
             </div>
             <div className="mt-8 grid gap-6">
-              <Card className="border-blue-900 shadow-lg">
+              <Card
+                className="border-[#4d6e5e] shadow-lg opacity-0 translate-x-10 transition-all duration-700"
+                data-aos="fade-right"
+              >
                 <CardHeader>
-                  <CardTitle className="text-blue-900">
+                  <CardTitle className="text-[#4d6e5e]">
                     Senior Web Developer
                   </CardTitle>
                   <CardDescription>Acme Inc. | 2020 - Present</CardDescription>
@@ -126,9 +143,14 @@ export default function Portfolio() {
                   </ul>
                 </CardContent>
               </Card>
-              <Card className="border-blue-900 shadow-lg">
+              <Card
+                className="border-[#4d6e5e] shadow-lg opacity-0 -translate-x-10 transition-all duration-700"
+                data-aos="fade-left"
+              >
                 <CardHeader>
-                  <CardTitle className="text-blue-900">Web Developer</CardTitle>
+                  <CardTitle className="text-[#4d6e5e]">
+                    Web Developer
+                  </CardTitle>
                   <CardDescription>Acme Corp. | 2017 - 2020</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -160,10 +182,14 @@ export default function Portfolio() {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32" id="skills">
+        <section
+          className="w-full py-12 md:py-24 lg:py-32 opacity-0 translate-y-10 transition-all duration-700"
+          data-aos="fade-up"
+          id="skills"
+        >
           <div className="container px-4 md:px-6">
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-900">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#4d6e5e]">
                 Skills
               </h2>
               <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
@@ -171,19 +197,28 @@ export default function Portfolio() {
               </p>
             </div>
             <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
-              <div className="flex flex-col items-center space-y-2">
-                <ComponentIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 translate-x-10 transition-all duration-700"
+                data-aos="fade-right"
+              >
+                <ComponentIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">React</h3>
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">
+                    React
+                  </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Front-end Library
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <NetworkIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 translate-x-10 transition-all duration-700"
+                data-aos="fade-right"
+                data-aos-delay="100"
+              >
+                <NetworkIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">
                     Node.js
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -191,10 +226,14 @@ export default function Portfolio() {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <DatabaseIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 translate-x-10 transition-all duration-700"
+                data-aos="fade-right"
+                data-aos-delay="200"
+              >
+                <DatabaseIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">
                     MongoDB
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -202,19 +241,27 @@ export default function Portfolio() {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <CloudIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 translate-x-10 transition-all duration-700"
+                data-aos="fade-right"
+                data-aos-delay="300"
+              >
+                <CloudIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">AWS</h3>
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">AWS</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Cloud Platform
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <WindIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 -translate-x-10 transition-all duration-700"
+                data-aos="fade-left"
+                data-aos-delay="100"
+              >
+                <WindIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">
                     Tailwind CSS
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -222,19 +269,27 @@ export default function Portfolio() {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <FolderGitIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 -translate-x-10 transition-all duration-700"
+                data-aos="fade-left"
+                data-aos-delay="200"
+              >
+                <GitGraphIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">Git</h3>
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">Git</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Version Control
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <TypeIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 -translate-x-10 transition-all duration-700"
+                data-aos="fade-left"
+                data-aos-delay="300"
+              >
+                <TypeIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">
                     TypeScript
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -242,10 +297,14 @@ export default function Portfolio() {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <ArrowRightIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 -translate-x-10 transition-all duration-700"
+                data-aos="fade-left"
+                data-aos-delay="400"
+              >
+                <ArrowRightIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">
                     Next.js
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -257,12 +316,13 @@ export default function Portfolio() {
           </div>
         </section>
         <section
-          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 opacity-0 translate-y-10 transition-all duration-700"
+          data-aos="fade-up"
           id="education"
         >
           <div className="container px-4 md:px-6">
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-900">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#4d6e5e]">
                 Education
               </h2>
               <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
@@ -270,9 +330,12 @@ export default function Portfolio() {
               </p>
             </div>
             <div className="mt-8 grid gap-6">
-              <Card className="border-blue-900 shadow-lg">
+              <Card
+                className="border-[#4d6e5e] shadow-lg opacity-0 translate-x-10 transition-all duration-700"
+                data-aos="fade-right"
+              >
                 <CardHeader>
-                  <CardTitle className="text-blue-900">
+                  <CardTitle className="text-[#4d6e5e]">
                     Bachelor of Science in Computer Science
                   </CardTitle>
                   <CardDescription>
@@ -289,38 +352,21 @@ export default function Portfolio() {
                   </p>
                 </CardContent>
               </Card>
-              <Card className="border-blue-900 shadow-lg">
+              <Card
+                className="border-[#4d6e5e] shadow-lg opacity-0 -translate-x-10 transition-all duration-700"
+                data-aos="fade-left"
+              >
                 <CardHeader>
-                  <CardTitle className="text-blue-900">
+                  <CardTitle className="text-[#4d6e5e]">
                     AWS Certified Solutions Architect - Associate
                   </CardTitle>
                   <CardDescription>Certified in 2021</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Earning the AWS Certified Solutions Architect - Associate
-                    certification demonstrates my expertise in designing and
-                    deploying scalable, highly available, and fault-tolerant
-                    systems on the AWS platform. This certification has been
-                    instrumental in my work on cloud-based web applications.
-                  </p>
-                </CardContent>
               </Card>
             </div>
           </div>
         </section>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-blue-900 text-white">
-        <p className="text-xs">© 2024 John Doe. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Privacy
-          </Link>
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Terms of Use
-          </Link>
-        </nav>
-      </footer>
     </div>
   );
 }
@@ -363,8 +409,8 @@ function BriefcaseIcon(
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
-      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+      <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+      <rect width="20" height="14" x="2" y="6" rx="2" />
     </svg>
   );
 }
@@ -435,7 +481,7 @@ function DatabaseIcon(
   );
 }
 
-function FolderGitIcon(
+function GitGraphIcon(
   props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
 ) {
   return (
@@ -451,10 +497,12 @@ function FolderGitIcon(
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
-      <circle cx="12" cy="13" r="2" />
-      <path d="M14 13h3" />
-      <path d="M7 13h3" />
+      <circle cx="5" cy="6" r="3" />
+      <path d="M5 9v6" />
+      <circle cx="5" cy="18" r="3" />
+      <path d="M12 3v18" />
+      <circle cx="19" cy="6" r="3" />
+      <path d="M16 15.7A9 9 0 0 0 19 9" />
     </svg>
   );
 }
