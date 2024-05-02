@@ -54,7 +54,7 @@ export default function Portfolio() {
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_550px]">
               <div className="space-y-4">
                 <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl text-blue-900">
-                  John Doe
+                  Henry Pendleton
                 </h1>
                 <h2 className="text-2xl font-semibold text-gray-500 dark:text-gray-400">
                   Full-Stack Web Developer
