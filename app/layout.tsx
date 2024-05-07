@@ -2,6 +2,8 @@ import { GeistSans } from "geist/font/sans";
 import { Arimo } from "next/font/google";
 import { Libre_Franklin } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`

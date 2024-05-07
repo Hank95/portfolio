@@ -1,9 +1,9 @@
 "use client";
-import DeployButton from "../components/DeployButton";
-import AuthButton from "../components/AuthButton";
-import { createClient } from "@/utils/supabase/server";
-import ConnectSupabaseSteps from "@/components/tutorial/ConnectSupabaseSteps";
-import SignUpUserSteps from "@/components/tutorial/SignUpUserSteps";
+// import DeployButton from "../components/DeployButton";
+// import AuthButton from "../components/AuthButton";
+// import { createClient } from "@/utils/supabase/server";
+// import ConnectSupabaseSteps from "@/components/tutorial/ConnectSupabaseSteps";
+// import SignUpUserSteps from "@/components/tutorial/SignUpUserSteps";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
@@ -30,18 +30,18 @@ import "aos/dist/aos.css";
 import headShot from "@/public/head_shot.png";
 
 export default async function Index() {
-  const canInitSupabaseClient = () => {
-    // This function is just for the interactive tutorial.
-    // Feel free to remove it once you have Supabase connected.
-    try {
-      createClient();
-      return true;
-    } catch (e) {
-      return false;
-    }
-  };
+  // const canInitSupabaseClient = () => {
+  //   // This function is just for the interactive tutorial.
+  //   // Feel free to remove it once you have Supabase connected.
+  //   try {
+  //     createClient();
+  //     return true;
+  //   } catch (e) {
+  //     return false;
+  //   }
+  // };
 
-  const isSupabaseConnected = canInitSupabaseClient();
+  // const isSupabaseConnected = canInitSupabaseClient();
 
   useEffect(() => {
     AOS.init({
@@ -53,11 +53,11 @@ export default async function Index() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-[100dvh]">
+    <div className="flex flex-col min-h-[100dvh] ">
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 justify-center items-center">
         <section
-          className="w-full py-12 md:py-24 lg:py-32 opacity-0 translate-y-10 transition-all duration-700"
+          className="w-full py-12 md:py-24 lg:py-32  px-12 opacity-0 translate-y-10 transition-all duration-700"
           data-aos="fade-up"
           id="about"
         >
@@ -94,7 +94,7 @@ export default async function Index() {
           data-aos="fade-up"
           id="experience"
         >
-          <div className="container px-4 md:px-6">
+          <div className=" px-4 md:px-6">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#4d6e5e]">
                 Work Experience
@@ -186,7 +186,7 @@ export default async function Index() {
           data-aos="fade-up"
           id="skills"
         >
-          <div className="container px-4 md:px-6">
+          <div className="px-4 md:px-6">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#4d6e5e]">
                 Skills
@@ -319,7 +319,7 @@ export default async function Index() {
           data-aos="fade-up"
           id="education"
         >
-          <div className="container px-4 md:px-6">
+          <div className="px-4 md:px-6">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#4d6e5e]">
                 Education
@@ -335,19 +335,20 @@ export default async function Index() {
               >
                 <CardHeader>
                   <CardTitle className="text-[#4d6e5e]">
-                    Bachelor of Science in Computer Science
+                    Full Stack Web Development
                   </CardTitle>
-                  <CardDescription>
-                    University of California, Berkeley | 2013 - 2017
-                  </CardDescription>
+                  <CardDescription>Flatiron School | 2021</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    During my time at UC Berkeley, I gained a strong foundation
-                    in computer science, including algorithms, data structures,
-                    and software engineering principles. I also had the
-                    opportunity to work on several projects and internships that
-                    allowed me to apply my knowledge in real-world scenarios.
+                    Completed an intensive program focused on Full Stack Web
+                    Development using Ruby on Rails and JavaScript/React. Gained
+                    hands-on experience building robust web applications from
+                    scratch, mastering both backend and frontend development.
+                    Developed proficiency in creating dynamic user experiences,
+                    working with APIs, and managing databases. The program
+                    emphasized best practices in software engineering,
+                    collaborative workflows, and agile methodologies.
                   </p>
                 </CardContent>
               </Card>
@@ -357,9 +358,11 @@ export default async function Index() {
               >
                 <CardHeader>
                   <CardTitle className="text-[#4d6e5e]">
-                    AWS Certified Solutions Architect - Associate
+                    Bachelor of Art in Business Economics
                   </CardTitle>
-                  <CardDescription>Certified in 2021</CardDescription>
+                  <CardDescription>
+                    St. Lawrence University | 2014 - 2018
+                  </CardDescription>
                 </CardHeader>
               </Card>
             </div>
