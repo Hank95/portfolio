@@ -111,9 +111,9 @@ export default async function Index() {
               >
                 <CardHeader>
                   <CardTitle className="text-[#4d6e5e]">
-                    Senior Web Developer
+                    Lead Frontend Developer
                   </CardTitle>
-                  <CardDescription>Acme Inc. | 2020 - Present</CardDescription>
+                  <CardDescription>Acme Inc. | 2022 - Present</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
