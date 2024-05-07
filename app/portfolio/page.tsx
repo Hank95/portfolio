@@ -234,10 +234,10 @@ export default function Component() {
                 <DatabaseIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
                   <h3 className="text-lg font-semibold text-[#4d6e5e]">
-                    MongoDB
+                    PostgreSQL
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    NoSQL Database
+                    SQL Database
                   </p>
                 </div>
               </div>
