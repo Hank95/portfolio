@@ -1,3 +1,4 @@
+"use client";
 import DeployButton from "../components/DeployButton";
 import AuthButton from "../components/AuthButton";
 import { createClient } from "@/utils/supabase/server";
@@ -18,10 +19,15 @@ import {
   DatabaseIcon,
   CloudIcon,
   WindIcon,
-  FolderGitIcon,
+  GitGraphIcon,
   TypeIcon,
   ArrowRightIcon,
 } from "@/components/Icons";
+import Image from "next/image";
+import { JSX, SVGProps, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import headShot from "@/public/head_shot.png";
 
 export default async function Index() {
   const canInitSupabaseClient = () => {
@@ -37,15 +43,28 @@ export default async function Index() {
 
   const isSupabaseConnected = canInitSupabaseClient();
 
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      disable: "phone",
+      duration: 700,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <Header />
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32" id="about">
+        <section
+          className="w-full py-12 md:py-24 lg:py-32 opacity-0 translate-y-10 transition-all duration-700"
+          data-aos="fade-up"
+          id="about"
+        >
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_550px]">
               <div className="space-y-4">
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl text-blue-900">
+                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl text-[#4d6e5e]">
                   Henry Pendleton
                 </h1>
                 <h2 className="text-2xl font-semibold text-gray-500 dark:text-gray-400">
@@ -59,23 +78,25 @@ export default async function Index() {
                   implementing robust, efficient solutions.
                 </p>
               </div>
-              <img
+              <Image
                 alt="John Doe"
-                className="mx-auto aspect-square overflow-hidden rounded-full object-cover sm:w-full"
+                className="mx-auto aspect-square overflow-hidden rounded-full object-cover sm:w-full opacity-0 translate-x-10 transition-all duration-700"
+                data-aos="fade-left"
                 height="550"
-                src="/placeholder.svg"
+                src={headShot}
                 width="550"
               />
             </div>
           </div>
         </section>
         <section
-          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 opacity-0 translate-y-10 transition-all duration-700"
+          data-aos="fade-up"
           id="experience"
         >
           <div className="container px-4 md:px-6">
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-900">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#4d6e5e]">
                 Work Experience
               </h2>
               <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
@@ -84,9 +105,12 @@ export default async function Index() {
               </p>
             </div>
             <div className="mt-8 grid gap-6">
-              <Card className="border-blue-900 shadow-lg dark:bg-gray-100">
+              <Card
+                className="border-[#4d6e5e] shadow-lg opacity-0 translate-x-10 transition-all duration-700"
+                data-aos="fade-right"
+              >
                 <CardHeader>
-                  <CardTitle className="text-blue-900">
+                  <CardTitle className="text-[#4d6e5e]">
                     Senior Web Developer
                   </CardTitle>
                   <CardDescription>Acme Inc. | 2020 - Present</CardDescription>
@@ -118,9 +142,14 @@ export default async function Index() {
                   </ul>
                 </CardContent>
               </Card>
-              <Card className="border-blue-900 shadow-lg">
+              <Card
+                className="border-[#4d6e5e] shadow-lg opacity-0 -translate-x-10 transition-all duration-700"
+                data-aos="fade-left"
+              >
                 <CardHeader>
-                  <CardTitle className="text-blue-900">Web Developer</CardTitle>
+                  <CardTitle className="text-[#4d6e5e]">
+                    Web Developer
+                  </CardTitle>
                   <CardDescription>Acme Corp. | 2017 - 2020</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -152,10 +181,14 @@ export default async function Index() {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32" id="skills">
+        <section
+          className="w-full py-12 md:py-24 lg:py-32 opacity-0 translate-y-10 transition-all duration-700"
+          data-aos="fade-up"
+          id="skills"
+        >
           <div className="container px-4 md:px-6">
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-900">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#4d6e5e]">
                 Skills
               </h2>
               <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
@@ -163,19 +196,28 @@ export default async function Index() {
               </p>
             </div>
             <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
-              <div className="flex flex-col items-center space-y-2">
-                <ComponentIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 translate-x-10 transition-all duration-700"
+                data-aos="fade-right"
+              >
+                <ComponentIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">React</h3>
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">
+                    React
+                  </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Front-end Library
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <NetworkIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 translate-x-10 transition-all duration-700"
+                data-aos="fade-right"
+                data-aos-delay="100"
+              >
+                <NetworkIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">
                     Node.js
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -183,30 +225,42 @@ export default async function Index() {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <DatabaseIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 translate-x-10 transition-all duration-700"
+                data-aos="fade-right"
+                data-aos-delay="200"
+              >
+                <DatabaseIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">
-                    MongoDB
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">
+                    PostgreSQL
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    NoSQL Database
+                    SQL Database
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <CloudIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 translate-x-10 transition-all duration-700"
+                data-aos="fade-right"
+                data-aos-delay="300"
+              >
+                <CloudIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">AWS</h3>
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">AWS</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Cloud Platform
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <WindIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 -translate-x-10 transition-all duration-700"
+                data-aos="fade-left"
+                data-aos-delay="100"
+              >
+                <WindIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">
                     Tailwind CSS
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -214,19 +268,27 @@ export default async function Index() {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <FolderGitIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 -translate-x-10 transition-all duration-700"
+                data-aos="fade-left"
+                data-aos-delay="200"
+              >
+                <GitGraphIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">Git</h3>
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">Git</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Version Control
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <TypeIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 -translate-x-10 transition-all duration-700"
+                data-aos="fade-left"
+                data-aos-delay="300"
+              >
+                <TypeIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">
                     TypeScript
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -234,10 +296,14 @@ export default async function Index() {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <ArrowRightIcon className="h-12 w-12 text-blue-500" />
+              <div
+                className="flex flex-col items-center space-y-2 opacity-0 -translate-x-10 transition-all duration-700"
+                data-aos="fade-left"
+                data-aos-delay="400"
+              >
+                <ArrowRightIcon className="h-12 w-12 text-[#4d6e5e]" />
                 <div className="text-center">
-                  <h3 className="text-lg font-semibold text-blue-900">
+                  <h3 className="text-lg font-semibold text-[#4d6e5e]">
                     Next.js
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -249,12 +315,13 @@ export default async function Index() {
           </div>
         </section>
         <section
-          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 opacity-0 translate-y-10 transition-all duration-700"
+          data-aos="fade-up"
           id="education"
         >
           <div className="container px-4 md:px-6">
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-900">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#4d6e5e]">
                 Education
               </h2>
               <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
@@ -262,9 +329,12 @@ export default async function Index() {
               </p>
             </div>
             <div className="mt-8 grid gap-6">
-              <Card className="border-blue-900 shadow-lg">
+              <Card
+                className="border-[#4d6e5e] shadow-lg opacity-0 translate-x-10 transition-all duration-700"
+                data-aos="fade-right"
+              >
                 <CardHeader>
-                  <CardTitle className="text-blue-900">
+                  <CardTitle className="text-[#4d6e5e]">
                     Bachelor of Science in Computer Science
                   </CardTitle>
                   <CardDescription>
@@ -281,22 +351,16 @@ export default async function Index() {
                   </p>
                 </CardContent>
               </Card>
-              <Card className="border-blue-900 shadow-lg">
+              <Card
+                className="border-[#4d6e5e] shadow-lg opacity-0 -translate-x-10 transition-all duration-700"
+                data-aos="fade-left"
+              >
                 <CardHeader>
-                  <CardTitle className="text-blue-900">
+                  <CardTitle className="text-[#4d6e5e]">
                     AWS Certified Solutions Architect - Associate
                   </CardTitle>
                   <CardDescription>Certified in 2021</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Earning the AWS Certified Solutions Architect - Associate
-                    certification demonstrates my expertise in designing and
-                    deploying scalable, highly available, and fault-tolerant
-                    systems on the AWS platform. This certification has been
-                    instrumental in my work on cloud-based web applications.
-                  </p>
-                </CardContent>
               </Card>
             </div>
           </div>
