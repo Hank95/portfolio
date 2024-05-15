@@ -28,6 +28,7 @@ import { JSX, SVGProps, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import headShot from "@/public/head_shot.png";
+import Globe from "@/components/globe";
 
 export default async function Index() {
   // const canInitSupabaseClient = () => {
@@ -56,6 +57,24 @@ export default async function Index() {
     <div className="flex flex-col min-h-[100dvh] ">
       <Header />
       <main className="flex-1 justify-center items-center">
+        {/* globe section */}
+        <section
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 opacity-0 translate-y-10 transition-all duration-700"
+          data-aos="fade-up"
+          id="globe"
+        >
+          <div className="container px-4 md:px-6">
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-[#4d6e5e]">
+                My Travels
+              </h2>
+              <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+                Explore the places I've visited around the world.
+              </p>
+            </div>
+            <Globe />
+          </div>
+        </section>
         <section
           className="w-full py-12 md:py-24 lg:py-32  px-12 opacity-0 translate-y-10 transition-all duration-700"
           data-aos="fade-up"
@@ -79,7 +98,7 @@ export default async function Index() {
                 </p>
               </div>
               <Image
-                alt="John Doe"
+                alt="Henry Pendleton"
                 className="mx-auto aspect-square overflow-hidden rounded-full object-cover sm:w-full opacity-0 translate-x-10 transition-all duration-700"
                 data-aos="fade-left"
                 height="550"
