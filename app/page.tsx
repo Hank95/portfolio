@@ -58,7 +58,7 @@ export default async function Index() {
       <Header />
       <main className="flex-1 justify-center items-center">
         {/* globe section */}
-        <section
+        {/* <section
           className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 opacity-0 translate-y-10 transition-all duration-700"
           data-aos="fade-up"
           id="globe"
@@ -74,7 +74,7 @@ export default async function Index() {
             </div>
             <Globe />
           </div>
-        </section>
+        </section> */}
         <section
           className="w-full py-12 md:py-24 lg:py-32  px-12 opacity-0 translate-y-10 transition-all duration-700"
           data-aos="fade-up"
